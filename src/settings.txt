@@ -1,0 +1,20 @@
+# Specify a detector type (HARRIS, FAST, SHITOMASI, BRISK, ORB, SIFT)
+detectorType=BRISK
+
+# descriptor type (BRISK, BRIEF, ORB, FREAK, AKAZE, SIFT)
+descriptorType=BRISK
+
+# matcher type (MAT_BF, MAT_FLANN)
+matcherType=MAT_BF
+
+# selectorType (SEL_NN, SEL_KNN)
+selectorType=SEL_KNN
+
+# only use keypoints found within rectangular region
+bFocusOnVehicle=1
+
+# descriptor matching norm. Use Hamming for binary descriptors, L1 or L2 for gradient descriptors (otherwise program will crash)
+# NORM_L1 : 2
+# NORM_L2 : 4
+# NORM_HAMMING : 6
+normType=6
