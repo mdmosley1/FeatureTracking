@@ -14,6 +14,8 @@
 #include "dataStructures.h"
 #include "matching2D.hpp"
 
+#include "FeatureTracker.h"
+
 #include "util.h"
 
 using namespace std;
@@ -47,6 +49,8 @@ int main(int argc, const char *argv[])
         return -1;
     }
 
+    FeatureTracker featureTracker(params);
+
     for (size_t imgIndex = 0; imgIndex <= imgEndIndex - imgStartIndex; imgIndex++)
     {
         /* LOAD IMAGE INTO BUFFER */
@@ -60,7 +64,11 @@ int main(int argc, const char *argv[])
         img = cv::imread(imgFullFilename);
         cv::cvtColor(img, imgGray, cv::COLOR_BGR2GRAY);
 
-        DetectAndTrackFeatures(imgGray, detector, descriptor, params);
+        // detect and describe features
+        DataFrame frame = DetectAndDescribeFeatures(imgGray, detector, descriptor, params);
+
+        // trackFeatures
+        featureTracker.TrackFeatures(frame);
     }
 
     // refactor above so I can run with every possible combination (30 total)

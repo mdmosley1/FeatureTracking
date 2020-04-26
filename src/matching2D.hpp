@@ -89,7 +89,6 @@ cv::Mat descKeypoints(std::vector<cv::KeyPoint> &keypoints,
                       const cv::Mat &img,
                       const cv::Ptr<cv::DescriptorExtractor>& _descriptor,
                       const Params& params);
-std::vector<cv::DMatch> matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::KeyPoint> &kPtsRef, cv::Mat &descSource, cv::Mat &descRef,
-                                         const Params& params);
+
 
 #endif /* matching2D_hpp */

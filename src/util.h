@@ -14,10 +14,10 @@ void VisualizeMatches(std::vector<cv::DMatch> matches);
 void LimitKeyPoints(std::vector<cv::KeyPoint>& keypoints, const Params& p);
 
 void LimitKeyPointsRect(std::vector<cv::KeyPoint>& keypoints);
-void DetectAndTrackFeatures(const cv::Mat& imgGray,
-                            const std::unique_ptr<KPDetector>& _detector,
-                            const cv::Ptr<cv::DescriptorExtractor>& _descriptor,
-                            const Params& params);
+DataFrame DetectAndDescribeFeatures(const cv::Mat& imgGray,
+                                    const std::unique_ptr<KPDetector>& _detector,
+                                    const cv::Ptr<cv::DescriptorExtractor>& _descriptor,
+                                    const Params& params);
 std::unique_ptr<KPDetector> CreateDetector(std::string _detectorType);
 cv::Ptr<cv::DescriptorExtractor> CreateDescriptor(std::string _descriptorType);
 Params LoadParamsFromFile(std::string fname);

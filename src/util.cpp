@@ -10,31 +10,9 @@ const bool bLimitKpts = true;
 bool bVis = true;            // visualize results
 
 
-int dataBufferSize = 2;       // no. of images which are held in memory (ring buffer) at the same time
-std::vector<DataFrame> dataBuffer_g; // list of data frames which are held in memory at the same time
 
-void AddToRingBuffer(const DataFrame& frame)
-{
-    dataBuffer_g.push_back(frame);
-    while (dataBuffer_g.size() > dataBufferSize)
-        dataBuffer_g.erase(dataBuffer_g.begin());
-}
 
-void VisualizeMatches(vector<cv::DMatch> matches)
-{
-    cv::Mat matchImg = ((dataBuffer_g.end() - 1)->cameraImg).clone();
-    cv::drawMatches((dataBuffer_g.end() - 2)->cameraImg, (dataBuffer_g.end() - 2)->keypoints,
-                    (dataBuffer_g.end() - 1)->cameraImg, (dataBuffer_g.end() - 1)->keypoints,
-                    matches, matchImg,
-                    cv::Scalar::all(-1), cv::Scalar::all(-1),
-                    vector<char>(), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
 
-    string windowName = "Matching keypoints between two camera images";
-    cv::namedWindow(windowName, 7);
-    cv::imshow(windowName, matchImg);
-    cout << "Press key to continue to next image" << endl;
-    cv::waitKey(0); // wait for key to be pressed
-}
 
 void LimitKeyPoints(vector<cv::KeyPoint>& keypoints, const Params& p)
 {
@@ -62,7 +40,7 @@ void LimitKeyPointsRect(vector<cv::KeyPoint>& keypoints)
 }
 
 
-void DetectAndTrackFeatures(const cv::Mat& imgGray,
+DataFrame DetectAndDescribeFeatures(const cv::Mat& imgGray,
                             const std::unique_ptr<KPDetector>& _detector,
                             const cv::Ptr<cv::DescriptorExtractor>& _descriptor,
                             const Params& params)
@@ -81,24 +59,9 @@ void DetectAndTrackFeatures(const cv::Mat& imgGray,
     // push descriptors for current frame to end of data buffer
     DataFrame newFrame(imgGray, keypoints, descriptors);
     cout << "#3 : EXTRACT DESCRIPTORS done" << endl;
-    AddToRingBuffer(newFrame);
 
-    if (dataBuffer_g.size() > 1) // wait until at least two images have been processed
-    {
-        //// TASK MP.5 -> add FLANN matching in file matching2D.cpp
-        //// TASK MP.6 -> add KNN match selection and perform descriptor distance ratio filtering with t=0.8 in file matching2D.cpp
-        auto currentFrame = dataBuffer_g.end() - 1;
-        auto lastFrame = dataBuffer_g.end() - 2;
-        vector<cv::DMatch> matches = matchDescriptors(lastFrame->keypoints, currentFrame->keypoints,
-                                                      lastFrame->descriptors, currentFrame->descriptors,
-                                                      params);
- 
-        // store matches in current data frame
-        currentFrame->kptMatches = matches;
-        cout << "#4 : MATCH KEYPOINT DESCRIPTORS done" << endl;
-        // visualize matches between current and previous image
-        if (bVis) VisualizeMatches(matches);
-    }
+    return newFrame;
+    
 }
 
 std::unique_ptr<KPDetector> CreateDetector(std::string _detectorType)
@@ -194,5 +157,6 @@ Params LoadParamsFromFile(std::string fname)
     p.selectorType = paramsMap["selectorType"];
     p.bFocusOnVehicle = std::stoi(paramsMap["bFocusOnVehicle"]);
     p.normType = std::stoi(paramsMap["normType"]);
+    p.visualizeMatches = std::stoi(paramsMap["visualizeMatches"]);
     return p;
 }
