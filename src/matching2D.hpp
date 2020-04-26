@@ -68,6 +68,13 @@ public:
     ~DetectorOrb() {}
 };
 
+class DetectorAkaze : public KPDetector
+{
+public:
+    std::vector<cv::KeyPoint> DetectKeypoints(const cv::Mat&, bool bVis = false);
+    ~DetectorAkaze() {}
+};
+
 class DetectorSift : public KPDetector
 {
 public:

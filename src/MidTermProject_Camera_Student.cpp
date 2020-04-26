@@ -134,6 +134,8 @@ std::unique_ptr<KPDetector> CreateDetector(std::string _detectorType)
         detector = std::make_unique<DetectorBrisk>();
     else if (_detectorType.compare("ORB") == 0)
         detector = std::make_unique<DetectorOrb>();
+    else if (_detectorType.compare("AKAZE") == 0)
+        detector = std::make_unique<DetectorAkaze>();
     else if (_detectorType.compare("SIFT") == 0)
         detector = std::make_unique<DetectorSift>();
     else

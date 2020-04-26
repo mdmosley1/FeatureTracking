@@ -149,6 +149,21 @@ std::vector<cv::KeyPoint> DetectorOrb::DetectKeypoints(const cv::Mat& img, bool 
     return keypoints;
 }
 
+std::vector<cv::KeyPoint> DetectorAkaze::DetectKeypoints(const cv::Mat& img, bool bVis)
+{
+    vector<cv::KeyPoint> keypoints;
+
+    double t = (double)cv::getTickCount();
+    cv::Ptr<cv::AKAZE> akaze = cv::AKAZE::create();
+    akaze->detect(img, keypoints);
+
+    t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
+
+    cout << "AKAZE detection with n=" << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
+
+    return keypoints;
+}
+
 std::vector<cv::KeyPoint> DetectorSift::DetectKeypoints(const cv::Mat& img, bool bVis)
 {
     vector<cv::KeyPoint> keypoints;

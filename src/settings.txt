@@ -1,8 +1,8 @@
-# Specify a detector type (HARRIS, FAST, SHITOMASI, BRISK, ORB, SIFT)
-detectorType=BRISK
+# Specify a detector type (HARRIS, FAST, SHITOMASI, BRISK, ORB, AKAZE, SIFT)
+detectorType=AKAZE
 
 # descriptor type (BRISK, BRIEF, ORB, FREAK, AKAZE, SIFT)
-descriptorType=BRISK
+descriptorType=AKAZE
 
 # matcher type (MAT_BF, MAT_FLANN)
 matcherType=MAT_BF
