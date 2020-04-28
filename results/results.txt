@@ -1,0 +1,182 @@
+RESULTS OF FEATURE TRACKING
+
+
+
+Detector/Descriptor: AKAZE, AKAZE
+Total keypoints: 1670
+Total matches: 1172
+Total time for detection and description: 0.943522
+
+
+Detector/Descriptor: BRISK, BRIEF
+Total keypoints: 2762
+Total matches: 1346
+Total time for detection and description: 3.59101
+
+
+Detector/Descriptor: BRISK, BRISK
+Total keypoints: 2762
+Total matches: 1298
+Total time for detection and description: 3.68526
+
+
+Detector/Descriptor: BRISK, FREAK
+Total keypoints: 2563
+Total matches: 1093
+Total time for detection and description: 3.80696
+
+
+Detector/Descriptor: BRISK, ORB
+Total keypoints: 2762
+Total matches: 933
+Total time for detection and description: 3.74169
+
+
+Detector/Descriptor: BRISK, SIFT
+Total keypoints: 2762
+Total matches: 1646
+Total time for detection and description: 4.05319
+
+
+Detector/Descriptor: FAST, BRIEF
+Total keypoints: 4094
+Total matches: 2178
+Total time for detection and description: 1.3911
+
+
+Detector/Descriptor: FAST, BRISK
+Total keypoints: 4094
+Total matches: 1832
+Total time for detection and description: 1.48135
+
+
+Detector/Descriptor: FAST, FREAK
+Total keypoints: 4094
+Total matches: 1566
+Total time for detection and description: 1.59216
+
+
+Detector/Descriptor: FAST, ORB
+Total keypoints: 4094
+Total matches: 2061
+Total time for detection and description: 1.50793
+
+
+Detector/Descriptor: FAST, SIFT
+Total keypoints: 4094
+Total matches: 2782
+Total time for detection and description: 1.5548
+
+
+Detector/Descriptor: HARRIS, BRIEF
+Total keypoints: 248
+Total matches: 141
+Total time for detection and description: 0.113154
+
+
+Detector/Descriptor: HARRIS, BRISK
+Total keypoints: 248
+Total matches: 121
+Total time for detection and description: 0.109655
+
+
+Detector/Descriptor: HARRIS, FREAK
+Total keypoints: 248
+Total matches: 123
+Total time for detection and description: 0.154462
+
+
+Detector/Descriptor: HARRIS, ORB
+Total keypoints: 248
+Total matches: 145
+Total time for detection and description: 0.126942
+
+
+Detector/Descriptor: HARRIS, SIFT
+Total keypoints: 248
+Total matches: 163
+Total time for detection and description: 0.242745
+
+
+Detector/Descriptor: ORB, BRIEF
+Total keypoints: 1160
+Total matches: 449
+Total time for detection and description: 0.24553
+
+
+Detector/Descriptor: ORB, BRISK
+Total keypoints: 1069
+Total matches: 649
+Total time for detection and description: 0.0860428
+
+
+Detector/Descriptor: ORB, FREAK
+Total keypoints: 619
+Total matches: 346
+Total time for detection and description: 0.121555
+
+
+Detector/Descriptor: ORB, ORB
+Total keypoints: 1160
+Total matches: 528
+Total time for detection and description: 0.126949
+
+
+Detector/Descriptor: ORB, SIFT
+Total keypoints: 1160
+Total matches: 856
+Total time for detection and description: 0.36854
+
+
+Detector/Descriptor: SHITOMASI, BRIEF
+Total keypoints: 1179
+Total matches: 816
+Total time for detection and description: 0.188372
+
+
+Detector/Descriptor: SHITOMASI, BRISK
+Total keypoints: 1179
+Total matches: 690
+Total time for detection and description: 0.193208
+
+
+Detector/Descriptor: SHITOMASI, FREAK
+Total keypoints: 1179
+Total matches: 574
+Total time for detection and description: 0.22828
+
+
+Detector/Descriptor: SHITOMASI, ORB
+Total keypoints: 1179
+Total matches: 768
+Total time for detection and description: 0.194133
+
+
+Detector/Descriptor: SHITOMASI, SIFT
+Total keypoints: 1179
+Total matches: 927
+Total time for detection and description: 0.305443
+
+
+Detector/Descriptor: SIFT, BRIEF
+Total keypoints: 1386
+Total matches: 597
+Total time for detection and description: 1.06717
+
+
+Detector/Descriptor: SIFT, BRISK
+Total keypoints: 1385
+Total matches: 536
+Total time for detection and description: 1.08115
+
+
+Detector/Descriptor: SIFT, FREAK
+Total keypoints: 1374
+Total matches: 506
+Total time for detection and description: 1.12081
+
+
+Detector/Descriptor: SIFT, SIFT
+Total keypoints: 1386
+Total matches: 800
+Total time for detection and description: 1.64314
