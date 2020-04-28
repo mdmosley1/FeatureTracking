@@ -1,8 +1,8 @@
 # Specify a detector type (HARRIS, FAST, SHITOMASI, BRISK, ORB, AKAZE, SIFT)
-detectorType=BRISK
+detectorType=ORB
 
 # descriptor type (BRISK, BRIEF, ORB, FREAK, AKAZE, SIFT)
-descriptorType=BRIEF
+descriptorType=BRISK
 
 # matcher type (MAT_BF, MAT_FLANN)
 matcherType=MAT_BF
@@ -17,7 +17,7 @@ bFocusOnVehicle=1
 # NORM_L1 : 2
 # NORM_L2 : 4
 # NORM_HAMMING : 6
-normType=6
+normType=4
 
 # visualize matches
-visualizeMatches=1
+visualizeMatches=0

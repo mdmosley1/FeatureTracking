@@ -4,14 +4,12 @@
 #include <vector>
 #include <fstream>
 
+#include "matching2D.hpp" // KPDetector
+
 using namespace std;
 
-const bool bLimitKpts = true;
+const bool bLimitKpts = false;
 bool bVis = true;            // visualize results
-
-
-
-
 
 
 void LimitKeyPoints(vector<cv::KeyPoint>& keypoints, const Params& p)
@@ -50,10 +48,12 @@ DataFrame DetectAndDescribeFeatures(const cv::Mat& imgGray,
     vector<cv::KeyPoint> keypoints; // create empty feature list for current image        
     keypoints = _detector->DetectKeypoints(imgGray, false);
 
-    //// TASK MP.3 -> only keep keypoints on the preceding vehicle
-    if (params.bFocusOnVehicle) LimitKeyPointsRect(keypoints);
     // optional : limit number of keypoints (helpful for debugging and learning)
     if (bLimitKpts) LimitKeyPoints(keypoints, params);
+
+    //// TASK MP.3 -> only keep keypoints on the preceding vehicle
+    if (params.bFocusOnVehicle) LimitKeyPointsRect(keypoints);
+    
     cout << "#2 : DETECT KEYPOINTS done" << endl;
     cv::Mat descriptors = descKeypoints(keypoints, imgGray, _descriptor, params);
     // push descriptors for current frame to end of data buffer
@@ -92,6 +92,7 @@ std::unique_ptr<KPDetector> CreateDetector(std::string _detectorType)
 
 cv::Ptr<cv::DescriptorExtractor> CreateDescriptor(std::string _descriptorType)
 {
+    cout << "Creating descriptor of type: " << _descriptorType << "\n";
     cv::Ptr<cv::DescriptorExtractor> extractor;
     if (_descriptorType.compare("BRISK") == 0)
     {
